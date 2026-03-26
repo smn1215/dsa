@@ -1,21 +1,19 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        if (s.length() != t.length()) return false;
-        
-        // Use an array of 26 for 'a' through 'z'
-        int counts[26] = {0};
-        
-        for (int i = 0; i < s.length(); i++) {
-            counts[s[i] - 'a']++;
-            counts[t[i] - 'a']--;
+        if (s.length() != t.length()){
+            return false;
+    }
+        else{
+            sort(s.begin(),s.end());
+            sort(t.begin(),t.end());
+            if (s == t){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         
-        for (int i = 0; i < 26; i++) {
-            if (counts[i] != 0) return false;
-        }
-        
-        return true;
     }
 };
-   
